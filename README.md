@@ -5,3 +5,5 @@ The Bunny Utility Suite is a collection of terminal based utilities created to r
 - `newf` (equivalent to `touch`)
 - `remf` (eqiuvalent to `rm`)
 - `newd` (eqiuvalent to `mkdir`)
+- `textdump` (prints contents of a file as text)
+- `hexdump` (prints contents of a file as hexadecimal)
