@@ -4,3 +4,4 @@ The Bunny Utility Suite is a collection of terminal based utilities created to r
 - `list` (equivalent to `ls`)
 - `newf` (equivalent to `touch`)
 - `remf` (eqiuvalent to `rm`)
+- `newd` (eqiuvalent to `mkdir`)
