@@ -1,2 +1,6 @@
 # BUS
-The Bunny Utility Suite
+The Bunny Utility Suite is a collection of terminal based utilities created to replace the GNU coreutils.
+### List of Completed utilities
+- `list` (equivalent to `ls`)
+- `newf` (equivalent to `touch`)
+- `remf` (eqiuvalent to `rm`)
