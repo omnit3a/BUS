@@ -1,0 +1,22 @@
+CC=gcc
+CCFLAGS=-I$(HDRDIR) -O2 
+
+HDRDIR=include/
+
+SRCDIR=src/
+SRCFILE=*.c
+
+LISTDIR=list/
+NEWFDIR=newf/
+REMFDIR=remf/
+
+OUTDIR=bin/
+LISTOUT=list
+NEWFOUT=newf
+REMFOUT=remf
+
+all:
+	clear
+	$(CC) -o $(OUTDIR)$(LISTOUT) $(SRCDIR)$(LISTDIR)$(SRCFILE) $(CCFLAGS)
+	$(CC) -o $(OUTDIR)$(NEWFOUT) $(SRCDIR)$(NEWFDIR)$(SRCFILE) $(CCFLAGS)
+	$(CC) -o $(OUTDIR)$(REMFOUT) $(SRCDIR)$(REMFDIR)$(SRCFILE) $(CCFLAGS)
