@@ -19,17 +19,22 @@ int main(int argc, char ** argv){
 	if (argc <= 1){
 		workingDirectory = opendir(".");
 	} else if (argc > 1 && argc < 4 ){
-
-		for (int i = 1 ; i < argc+1 ; i++){
-			if (strcmp(argv[i],EXTRA_INFO_FLAG) == 0){
-				foundExFlag = 1;
-			} else {
-				workingDirectory = opendir(argv[i]);
-				dirName = argv[i];
+		
+		if (argc == 3){
+			for (int i = 1 ; i < argc+1 ; i++){
+				if (strcmp(argv[i],EXTRA_INFO_FLAG) == 0){
+					foundExFlag = 1;
+				} else {
+					workingDirectory = opendir(argv[i]);
+					dirName = argv[i];
+				}
+				if (i == 2){
+					break;
+				}
 			}
-			if (i == 2){
-				break;
-			}
+		} else {
+			workingDirectory = opendir(argv[1]);
+			dirName = argv[1];
 		}
 	}
 	
