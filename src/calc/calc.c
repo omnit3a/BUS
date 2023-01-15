@@ -2,8 +2,9 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
-#define MAX_OPCODE_BUFFER_SIZE 1024
+#define MAX_OPCODE_BUFFER_SIZE 1024 
 #define MAX_STACK_SIZE 256
 #define DELIM " "
 
@@ -29,8 +30,8 @@ int isNumber(char * text){
 }
 
 int main(int argc, char ** argv){
-	if (argc < 4){
-		fprintf(stderr, "calc: must provide at least 3 tokens\n");
+	if (argc < 3){
+		fprintf(stderr, "calc: must provide at least 2 tokens\n");
 		return 1;	
 	}
 
@@ -85,10 +86,15 @@ int main(int argc, char ** argv){
 				pushToStack(tempA*tempB);
 
 			} else if (strcmp(tokensList[i], "/") == 0){
-				tempB = popFromStack();
+		`		tempB = popFromStack();
 				tempA = popFromStack();
 				printf("%d\n",tempA/tempB);
 				pushToStack(tempA/tempB);
+
+			} else if (strcmp(tokensList[i], "sqrt") == 0){
+				tempA = popFromStack();
+				printf("%d\n",(int)sqrt(tempA));
+				pushToStack((int)sqrt(tempA));
 			} else {
 				break;
 			}
