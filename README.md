@@ -6,4 +6,4 @@ The Bunny Utility Suite is a collection of terminal based utilities created to r
 - `remf` (eqiuvalent to `rm`)
 - `newd` (eqiuvalent to `mkdir`)
 - `hexdump` (prints contents of a file as hexadecimal, optional `-tx` and `-oc` flags, which lists contents of file as text and octal respectively)
-- `calc` (reverse polish notation calculator, `+`, `-`, `x`, `/`)
+- `calc` (reverse polish notation calculator, `+`, `-`, `x`, `/`, `sqrt`)
