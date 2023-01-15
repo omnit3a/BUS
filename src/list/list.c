@@ -67,10 +67,8 @@ int main(int argc, char ** argv){
 			
 			// print base filename
 			if (!foundExFlag){
-				printf("%s    ", fileToPrint);
-				if (row++ % 10 == 0){
-					printf("\n");
-				}	
+				
+				printf("%s\n", fileToPrint);
 			} else {
 				if (chdir(dirName) == 0){
 
