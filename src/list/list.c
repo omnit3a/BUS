@@ -102,6 +102,6 @@ int main(int argc, char ** argv){
 		}
 		closedir(workingDirectory);
 	}
-	printf("%s\n",RESET_COLOR);
+	printf("%s",RESET_COLOR);
 	return 0;
 }
