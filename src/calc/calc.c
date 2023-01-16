@@ -10,6 +10,7 @@
 
 int stack[MAX_STACK_SIZE];
 int stackPointer = 0;
+int tempA, tempB = 0;
 
 int pushToStack(int value){
 	stack[stackPointer++ % MAX_STACK_SIZE] = value;
@@ -29,6 +30,11 @@ int isNumber(char * text){
 	return 1;
 }
 
+void valPop(){
+	tempB = popFromStack();
+	tempA = popFromStack();
+}
+
 int main(int argc, char ** argv){
 	if (argc < 3){
 		fprintf(stderr, "calc: must provide at least 2 tokens\n");
@@ -43,8 +49,6 @@ int main(int argc, char ** argv){
 	char inputString[MAX_OPCODE_BUFFER_SIZE] = "";
 
 	char tempIntString[256];
-	int tempA;
-	int tempB;
 
 	// group all tokens into one string
 	for (int i = 1 ; i < argc ; i++){
@@ -68,32 +72,27 @@ int main(int argc, char ** argv){
 			pushToStack(atoi(tokensList[i]));
 		} else {
 			if (strcmp(tokensList[i], "+") == 0){
-				tempB = popFromStack();
-				tempA = popFromStack();
+				valPop();
 				printf("%d\n",tempA+tempB);
 				pushToStack(tempA+tempB);
 
 			} else if (strcmp(tokensList[i], "-") == 0){
-				tempB = popFromStack();
-				tempA = popFromStack();
+				valPop();
 				printf("%d\n",tempA-tempB);
 				pushToStack(tempA-tempB);
 
 			} else if (strcmp(tokensList[i], "x") == 0){
-				tempA = popFromStack();
-				tempB = popFromStack();
+				valPop();
 				printf("%d\n",tempA*tempB);
 				pushToStack(tempA*tempB);
 
 			} else if (strcmp(tokensList[i], "/") == 0){
-				tempB = popFromStack();
-				tempA = popFromStack();
+				valPop();
 				printf("%d\n",tempA/tempB);
 				pushToStack(tempA/tempB);
 
 			} else if (strcmp(tokensList[i], "%") == 0){
-				tempB = popFromStack();
-				tempA = popFromStack();
+				valPop();
 				printf("%d\n",tempA%tempB);
 				pushToStack(tempA%tempB);
 
