@@ -86,15 +86,26 @@ int main(int argc, char ** argv){
 				pushToStack(tempA*tempB);
 
 			} else if (strcmp(tokensList[i], "/") == 0){
-		`		tempB = popFromStack();
+				tempB = popFromStack();
 				tempA = popFromStack();
 				printf("%d\n",tempA/tempB);
 				pushToStack(tempA/tempB);
+
+			} else if (strcmp(tokensList[i], "%") == 0){
+				tempB = popFromStack();
+				tempA = popFromStack();
+				printf("%d\n",tempA%tempB);
+				pushToStack(tempA%tempB);
 
 			} else if (strcmp(tokensList[i], "sqrt") == 0){
 				tempA = popFromStack();
 				printf("%d\n",(int)sqrt(tempA));
 				pushToStack((int)sqrt(tempA));
+			
+			} else if (strcmp(tokensList[i], "sqr") == 0){
+				tempA = popFromStack();
+				printf("%d\n",tempA*tempA);
+				pushToStack(tempA*tempA);
 			} else {
 				break;
 			}
