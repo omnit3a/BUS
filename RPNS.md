@@ -1,5 +1,5 @@
 ﻿## RPNS
-Reverse Polish Notation Script is a (**heavily WIP**) scripting language
+Reverse Polish Notation Script is a (**heavily WIP**) scripting language. To run, provide a source file to the `rpns` command
 #### How it works
 There are five main operations currently, those being:
 - `+` Add top two numbers on the stack
