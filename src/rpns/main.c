@@ -67,6 +67,7 @@ int main(int argc, char ** argv){
 	}
 
 	int i = 0;
+	int currentOp = 0;
 	for (i = 0 ; i < tokenPos ; i++){
 		currentToken = tokensList[i];
 		if (isNumber(currentToken)){
@@ -117,6 +118,11 @@ int main(int argc, char ** argv){
 				tempB = popFromStack();
 				tempA = popFromStack();
 				conditionMet = (tempA < tempB);
+			
+			} else if (strcmp(currentToken, "!=") == 0){
+				tempB = popFromStack();
+				tempA = popFromStack();
+				conditionMet = !(tempA != tempB);
 
 			} else if (strcmp(currentToken, "if") == 0){
 				if (conditionMet){
@@ -127,7 +133,7 @@ int main(int argc, char ** argv){
 				}
 
 			} else if (strcmp(currentToken, "while") == 0){
-				loopReturn = i;
+				loopReturn = i-1;
 				if (conditionMet){
 					while (strcmp(tokensList[i], "endwhile") != 0) {
 						i++;

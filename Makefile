@@ -12,6 +12,7 @@ REMFDIR=remf/
 NEWDDIR=newd/
 HEXDUMPDIR=hexdump/
 CALCDIR=calc/
+RPNSDIR=rpns/
 
 OUTDIR=bin/
 LISTOUT=list
@@ -20,6 +21,7 @@ REMFOUT=remf
 NEWDOUT=newd
 HEXDUMPOUT=hexdump
 CALCOUT=calc
+RPNSOUT=rpns
 
 all:
 	clear
@@ -30,4 +32,5 @@ all:
 	$(CC) -o $(OUTDIR)$(NEWDOUT) $(SRCDIR)$(NEWDDIR)$(SRCFILE) $(CCFLAGS)
 	$(CC) -o $(OUTDIR)$(HEXDUMPOUT) $(SRCDIR)$(HEXDUMPDIR)$(SRCFILE) $(CCFLAGS)
 	$(CC) -o $(OUTDIR)$(CALCOUT) $(SRCDIR)$(CALCDIR)$(SRCFILE) $(CCFLAGS)
+	$(CC) -o $(OUTDIR)$(RPNSOUT) $(SRCDIR)$(RPNSDIR)$(SRCFILE) $(CCFLAGS)
 	zip -r bunnysuite.zip bin
