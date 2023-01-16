@@ -1,5 +1,5 @@
 CC=gcc
-CCFLAGS=-I$(HDRDIR) -O2 
+CCFLAGS=-I$(HDRDIR) -O2 -lm
 
 HDRDIR=include/
 
