@@ -68,10 +68,37 @@ int main(int argc, char ** argv){
 
 	int i = 0;
 	int currentOp = 0;
+	int tempPos = 0;
 	for (i = 0 ; i < tokenPos ; i++){
-		currentTsoken = tokensList[i];
+		currentToken = tokensList[i];
 		if (isNumber(currentToken)){
 			pushToStack(atoi(currentToken));
+		} else if (currentToken[0] == '"'){
+			tempPos = strlen(currentToken);
+			if (currentToken[tempPos-1] != '"'){
+				continue;
+			}
+			tempPos--;
+			while(--tempPos){
+				if (currentToken[tempPos-1] == '\\'){
+
+					// escape sequences
+					switch (currentToken[tempPos]){
+						case 's':
+							pushToStack(' ');
+							break;
+						case 'n':
+							pushToStack('\n');
+							break;
+						case 't':
+							pushToStack('\t');
+							break;
+					}
+					tempPos--;
+				} else {
+					pushToStack(currentToken[tempPos]);
+				}
+			}
 		} else {
 			if (strcmp(currentToken, "+") == 0){
 				tempB = popFromStack();
@@ -158,7 +185,13 @@ int main(int argc, char ** argv){
 
 			} else if (strcmp(currentToken, "drop") == 0){
 				tempA = popFromStack();
-
+			
+			} else if (strcmp(currentToken, "print") == 0){
+				tempA = popFromStack();
+				for (int i = 0 ; tempA != 0 ; i++){
+					printf("%c",tempA);
+					tempA = popFromStack();
+				}
 			} else {
 				break;
 			}

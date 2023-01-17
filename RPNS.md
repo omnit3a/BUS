@@ -18,6 +18,12 @@ There are also three main conditionals, those being:
 - `<` Check for greater number
 - `>` Check for lesser number
 
+Finally, there are two output operations, those being:
+- `print` Prints out a 0-terminated string that is stored on the stack. This is destructive towards<br>the string.
+- `.` Prints out the value on the top of the stack as a decimal number
+
+To push a string onto the stack, simply write out the text you want to push, surrounded by double quotes.<br>
+
 To push values onto the stack, simply write out the value you want to push. Then, if you want to<br> do math, simply use a operator, and the result of the operation will be pushed to the <br>stack. To print out the result, use the `.` command.
 #### Conditionals/Loops
 In order to execute a conditional block, the most recent conditional statement must have<br>evaluated to `TRUE`.
