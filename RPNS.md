@@ -1,12 +1,17 @@
 ﻿## RPNS
 Reverse Polish Notation Script is a (**heavily WIP**) scripting language. To run, provide a source file to the `rpns` command
 #### How it works
-There are five main operations currently, those being:
+There are five main arithemtic operations currently, those being:
 - `+` Add top two numbers on the stack
 - `-` Subtract top two numbers on the stack
 - `*` Multiply top two numbers on the stack
 - `/` Divide top two numbers on the stack
 - `%` Modulo top two numbers on the stack
+
+There are also three main stack operations, those being:
+- `drop` Remove the value on the top of the stack
+- `swap` Swap the top two values on the stack
+- `dup` Duplicate the top value on the stack
 
 There are also three main conditionals, those being:
 - `=` Check for equality

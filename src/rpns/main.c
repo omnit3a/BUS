@@ -69,7 +69,7 @@ int main(int argc, char ** argv){
 	int i = 0;
 	int currentOp = 0;
 	for (i = 0 ; i < tokenPos ; i++){
-		currentToken = tokensList[i];
+		currentTsoken = tokensList[i];
 		if (isNumber(currentToken)){
 			pushToStack(atoi(currentToken));
 		} else {
@@ -149,6 +149,16 @@ int main(int argc, char ** argv){
 				tempA = popFromStack();
 				printf("%d\n", tempA);
 				pushToStack(tempA);
+
+			} else if (strcmp(currentToken, "swap") == 0){
+				tempA = popFromStack();
+				tempB = popFromStack();
+				pushToStack(tempA);
+				pushToStack(tempB);
+
+			} else if (strcmp(currentToken, "drop") == 0){
+				tempA = popFromStack();
+
 			} else {
 				break;
 			}
