@@ -10,4 +10,8 @@ int pushToStack(int value);
 
 int popFromStack();
 
+int swapOnStack();
+
+int duplicateOnStack();
+
 #endif

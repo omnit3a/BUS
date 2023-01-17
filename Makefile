@@ -25,7 +25,8 @@ RPNSOUT=rpns
 
 all:
 	clear
-	rm $(OUTDIR)*
+
+	rm bin/*
 	$(CC) -o $(OUTDIR)$(LISTOUT) $(SRCDIR)$(LISTDIR)$(SRCFILE) $(CCFLAGS)
 	$(CC) -o $(OUTDIR)$(NEWFOUT) $(SRCDIR)$(NEWFDIR)$(SRCFILE) $(CCFLAGS)
 	$(CC) -o $(OUTDIR)$(REMFOUT) $(SRCDIR)$(REMFDIR)$(SRCFILE) $(CCFLAGS)

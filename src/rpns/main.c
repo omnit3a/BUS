@@ -127,10 +127,8 @@ int main(int argc, char ** argv){
 
 			// duplicate value on top of stack
 			} else if (strcmp(currentToken, "dup") == 0){
-				tempA = popFromStack();
-				pushToStack(tempA);
-				pushToStack(tempA);
-	
+				duplicateOnStack();
+
 			} else if (strcmp(currentToken, "=") == 0){
 				tempB = popFromStack();
 				tempA = popFromStack();
@@ -178,10 +176,7 @@ int main(int argc, char ** argv){
 				pushToStack(tempA);
 
 			} else if (strcmp(currentToken, "swap") == 0){
-				tempA = popFromStack();
-				tempB = popFromStack();
-				pushToStack(tempA);
-				pushToStack(tempB);
+				swapOnStack();
 
 			} else if (strcmp(currentToken, "drop") == 0){
 				tempA = popFromStack();
@@ -192,6 +187,7 @@ int main(int argc, char ** argv){
 					printf("%c",tempA);
 					tempA = popFromStack();
 				}
+				
 			} else {
 				break;
 			}
