@@ -13,16 +13,16 @@ There are also three main stack operations, those being:
 - `swap` Swap the top two values on the stack
 - `dup` Duplicate the top value on the stack
 
-There are also three main conditionals, those being:
+There are also five main conditionals, those being:
 - `=` Check for equality
 - `<` Check for greater number
 - `>` Check for lesser number
+- `met` Evaluates to true
+- `unmet` Evaluates to false
 
 Finally, there are two output operations, those being:
-- `print` Prints out a 0-terminated string that is stored on the stack. This is destructive towards<br>the string.
-- `.` Prints out the value on the top of the stack as a decimal number
-
-To push a string onto the stack, simply write out the text you want to push, surrounded by double quotes.<br>
+- `print` Prints out the value on the top of the stack as a character. This is destructive towards the value
+- `.` Prints out the value on the top of the stack as a decimal number. This preserves the value
 
 To push values onto the stack, simply write out the value you want to push. Then, if you want to<br> do math, simply use a operator, and the result of the operation will be pushed to the <br>stack. To print out the result, use the `.` command.
 #### Conditionals/Loops
@@ -30,4 +30,4 @@ In order to execute a conditional block, the most recent conditional statement m
 ##### IF statement syntax
 To start an `if` statement, simply use the `if` keyword, and to end an `if` block use <br>the `endif` keyword.
 ##### WHILE statement syntax
-To start a `while` statement, use the `while` keyword, and to end a `while` block use the<br> `endwhile` keyword.
+To start a `while` statement, use the `while` keyword, and to end a `while` block use the<br> `endloop` keyword.

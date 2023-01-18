@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <rpns/stack.h>
+#include <math.h>
 
 #define MAX_OPCODES 1024 * 10
 #define MAX_OPCODE_SIZE 32
@@ -73,32 +74,6 @@ int main(int argc, char ** argv){
 		currentToken = tokensList[i];
 		if (isNumber(currentToken)){
 			pushToStack(atoi(currentToken));
-		} else if (currentToken[0] == '"'){
-			tempPos = strlen(currentToken);
-			if (currentToken[tempPos-1] != '"'){
-				continue;
-			}
-			tempPos--;
-			while(--tempPos){
-				if (currentToken[tempPos-1] == '\\'){
-
-					// escape sequences
-					switch (currentToken[tempPos]){
-						case 's':
-							pushToStack(' ');
-							break;
-						case 'n':
-							pushToStack('\n');
-							break;
-						case 't':
-							pushToStack('\t');
-							break;
-					}
-					tempPos--;
-				} else {
-					pushToStack(currentToken[tempPos]);
-				}
-			}
 		} else {
 			if (strcmp(currentToken, "+") == 0){
 				tempB = popFromStack();
@@ -128,6 +103,11 @@ int main(int argc, char ** argv){
 			// duplicate value on top of stack
 			} else if (strcmp(currentToken, "dup") == 0){
 				duplicateOnStack();
+			
+			} else if (strcmp(currentToken, "sqrt") == 0){
+				tempA = popFromStack();
+				pushToStack(sqrt(tempA));
+
 
 			} else if (strcmp(currentToken, "=") == 0){
 				tempB = popFromStack();
@@ -160,13 +140,13 @@ int main(int argc, char ** argv){
 			} else if (strcmp(currentToken, "while") == 0){
 				loopReturn = i-1;
 				if (conditionMet){
-					while (strcmp(tokensList[i], "endwhile") != 0) {
+					while (strcmp(tokensList[i], "endloop") != 0) {
 						i++;
 					}
 					continue;
 				}
 	
-			} else if (strcmp(currentToken, "endwhile") == 0){
+			} else if (strcmp(currentToken, "endloop") == 0){
 				i = loopReturn;
 
 			// output top stack value to terminal
@@ -174,6 +154,10 @@ int main(int argc, char ** argv){
 				tempA = popFromStack();
 				printf("%d\n", tempA);
 				pushToStack(tempA);
+			
+			} else if (strcmp(currentToken, "print") == 0){
+				tempA = popFromStack();
+				printf("%c",tempA);
 
 			} else if (strcmp(currentToken, "swap") == 0){
 				swapOnStack();
@@ -181,13 +165,12 @@ int main(int argc, char ** argv){
 			} else if (strcmp(currentToken, "drop") == 0){
 				tempA = popFromStack();
 			
-			} else if (strcmp(currentToken, "print") == 0){
-				tempA = popFromStack();
-				for (int i = 0 ; tempA != 0 ; i++){
-					printf("%c",tempA);
-					tempA = popFromStack();
-				}
-				
+			} else if (strcmp(currentToken, "met") == 0){
+				conditionMet = 1;
+			
+			} else if (strcmp(currentToken, "unmet") == 0){
+				conditionMet = 0;
+
 			} else {
 				break;
 			}
