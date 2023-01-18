@@ -12,3 +12,20 @@ int pushToStack(int value){
 int popFromStack(){
 	return stack[--stackPointer % MAX_STACK_SIZE];
 }
+
+int swapOnStack(){
+	int tempA, tempB = 0;
+	tempA = popFromStack();
+	tempB = popFromStack();
+	pushToStack(tempA);
+	pushToStack(tempB);
+	return 0;
+}
+
+int duplicateOnStack(){
+	int tempA = 0;
+	tempA = popFromStack();
+	pushToStack(tempA);
+	pushToStack(tempA);
+	return 0;
+}
